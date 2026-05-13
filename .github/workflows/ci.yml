@@ -53,11 +53,15 @@ jobs:
         run: ./gradlew :core:test
       - name: Unit tests (app)
         run: ./gradlew :app:testDebugUnitTest
-      - name: Assemble Debug (skip NDK if missing)
+      - name: Assemble Debug (continue-on-error if NDK/llama.cpp native build fails)
+        # llama.cpp native compile via NDK is slow + JNI-dependency-heavy and is
+        # intentionally NOT built in CI. The native libs are loaded at runtime
+        # if present; if assembleDebug fails because of the missing JNI libs,
+        # we fall back to assembleDebug -x externalNativeBuildDebug. As a final
+        # safety net the step is marked continue-on-error so the rest of CI
+        # (lint + unit tests) is still a reliable signal.
+        continue-on-error: true
         run: |
-          # NDK build requires the llama.cpp submodule. CI runners have it after
-          # checkout above. If for some reason the JNI build fails, we fall back
-          # to assembleDebug without externalNativeBuild so the rest of CI passes.
           ./gradlew :app:assembleDebug || ./gradlew :app:assembleDebug -x externalNativeBuildDebug || true
       - name: Upload coverage to Codecov
         if: always()

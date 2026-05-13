@@ -2,11 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
-This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] - v0.1.0
+## [Unreleased]
 
-Initial public release. See distribution/whatsnew/v0.1.0/en-US.txt for the user-facing summary.
+### Added
+- Repo hygiene scaffolding: CODEOWNERS, 5 issue templates, README badges + umbrella link.
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.1.0] - 2026-05-06
+
+Initial public release. See `distribution/whatsnew/v0.1.0/en-US.txt` for the
+user-facing summary.
 
 ## Commit history (since repo creation)
 

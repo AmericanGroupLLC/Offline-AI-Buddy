@@ -1,5 +1,11 @@
 # Offline AI Buddy
 
+[![CI](https://github.com/AmericanGroupLLC/Offline-AI-Buddy/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/AmericanGroupLLC/Offline-AI-Buddy/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Platform: Android](https://img.shields.io/badge/platform-Android%20%7C%20Desktop-3DDC84.svg)](#stack)
+[![llama.cpp](https://img.shields.io/badge/runtime-llama.cpp-000.svg)](https://github.com/ggerganov/llama.cpp)
+[![Umbrella: AmericanGroupLLC](https://img.shields.io/badge/org-AmericanGroupLLC-blue.svg)](https://github.com/AmericanGroupLLC)
+
 > **Your phone-only AI. Works without internet.**
 
 Offline AI Buddy is a phone-only on-device LLM app. After a one-time
@@ -56,6 +62,9 @@ inventory.
 ## Get started
 
 ```sh
+# Android — assemble the debug APK (one-shot)
+cd android && ./gradlew :app:assembleDebug
+
 # iOS Simulator
 ./scripts/run-ios-sim.sh
 
@@ -71,6 +80,16 @@ inventory.
 # Benchmark tokens/sec on the host device
 ./scripts/bench-llama.sh
 ```
+
+> **First launch:** the app downloads ~1 GB of GGUF model weights once on first
+> launch. After that, **all** chat / voice / translator / keyboard inference is
+> 100 % offline — no servers, no analytics, no accounts.
+
+## Umbrella
+
+Part of the [AmericanGroupLLC](https://github.com/AmericanGroupLLC) family of
+on-device-AI products. This repo was split from the `mobile-apps` monorepo
+with full git history preserved.
 
 ## License
 
